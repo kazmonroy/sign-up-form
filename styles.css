@@ -1,0 +1,279 @@
+:root {
+  --base-font: "Montserrat", sans-serif;
+  --black: #243241;
+  --bg-color: rgb(180, 180, 180);
+  --light-blue: rgb(12, 211, 242);
+  --yellow: #fcf300;
+  --blue: #00509d;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--base-font);
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 700px;
+  /* height: min(90vh, 100vh); */
+  width: min(900px, 100%);
+}
+
+form {
+  margin: 1rem 0rem;
+}
+
+form > * {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+form > div > label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.terms label {
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+input {
+  height: 30px;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 0.4rem;
+  padding-left: 0.5rem;
+}
+
+input::-webkit-input-placeholder,
+input::placeholder {
+  font-size: 0.8rem;
+  color: rgb(173, 173, 173);
+}
+
+input:focus {
+  border: 1px solid var(--light-blue);
+  outline: inherit;
+}
+
+input,
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.form-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+/* Cover */
+
+.cover {
+  --width: 700px;
+  background-image: url(./bg/cover-bg.jpg);
+  height: 100%;
+  width: var(--width);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.author {
+  position: absolute;
+  width: 100%;
+  font-size: 0.7rem;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.author > a {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+/* Terms section */
+
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: var(--black);
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid grey;
+  border-radius: 0.2rem;
+  transform: translateY(-0.2rem);
+  margin-right: 1rem;
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.1rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--light-blue);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.tx-hover {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Form button */
+
+.form-buttons {
+  margin: 2rem 0rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button {
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+}
+
+.active {
+  background-color: var(--light-blue);
+  color: var(--black);
+}
+
+.active:hover {
+  background-color: var(--yellow);
+  color: black;
+}
+
+.inactive {
+  background-color: white;
+  color: black;
+  border: 2px solid var(--light-blue);
+}
+
+.inactive:hover {
+  background-color: var(--yellow);
+  color: black;
+  border: 2px solid var(--yellow);
+}
+
+/* Account badges */
+
+.account-badges {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.account-badges > h2 {
+  font-size: 1rem;
+}
+
+.badges-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.badges-list > li {
+  padding: 0rem 0.5rem;
+  font-size: 1.7rem;
+}
+
+i {
+  padding: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+i:hover {
+  transform: scale(1.5);
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.fa-facebook {
+  font-size: 1.7rem;
+}
+
+/* Error messages */
+
+.input {
+  position: relative;
+}
+
+small {
+  position: absolute;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: var(--light-blue);
+}
+
+.form-control.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+@media only screen and (max-width: 950px) {
+  .cover {
+    display: none !important;
+  }
+
+  .container {
+    width: max(500px, 400px);
+    height: max(600px, 500px);
+    padding: 2rem 0rem;
+  }
+
+  .form-info {
+    overflow-y: scroll;
+  }
+}
